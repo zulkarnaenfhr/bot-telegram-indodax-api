@@ -109,6 +109,6 @@
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg1."...");
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg2."...");
-
     }
+else echo 'Only telegram can access this url.';
 ?>
