@@ -109,6 +109,12 @@
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg1."...");
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg2."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg3."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg4."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg5."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg6."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg7."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg8."...");
     }
-else echo 'Only telegram can access this url.';
+    else echo 'Only telegram can access this url.';
 ?>
