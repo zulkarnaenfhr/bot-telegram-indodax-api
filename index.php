@@ -180,7 +180,7 @@
             $last = $data[$asset]['last'];
             if ($last = $low) {
                 // $coinLowPrice = array_push($coinLowPrice,$asset);
-                $msgLow .= $asset;
+                $msgLow .= "%0a".$asset."%0a";
             }
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msgLow."...");
