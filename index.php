@@ -173,6 +173,7 @@
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg8."...");
     }
     if ($text=="/low") {
+        $msgStatusCoinLow = "Coin yang mengalami harga terendah :";
         $coinLowPrice = array();
         for ($i=0; $i < $panjangData; $i++) { 
             $asset = array_keys($data)[$i];
@@ -180,10 +181,10 @@
             $last = $data[$asset]['last'];
             if ($last == $low) {
                 // $coinLowPrice = array_push($coinLowPrice,$asset);
-                $msgLow .= "%0a".$asset."%0a";
+                $msgLow .= "1.".$asset."%0a";
             }
         }
-        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msgLow."...");
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgLow."...");
     }
     else echo 'Only telegram can access this url.';
 ?>
