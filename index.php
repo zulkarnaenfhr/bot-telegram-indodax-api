@@ -172,5 +172,18 @@
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg7."...");
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg8."...");
     }
+    if ($text=="/low") {
+        $coinLowPrice = array();
+        for ($i=0; $i < $panjangData; $i++) { 
+            $asset = array_keys($data)[$i];
+            $low = $data[$asset]['low'];
+            $last = $data[$asset]['last'];
+            if ($last = $low) {
+                // $coinLowPrice = array_push($coinLowPrice,$asset);
+                $msgLow .= $asset;
+            }
+        }
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msgLow."...");
+    }
     else echo 'Only telegram can access this url.';
 ?>
