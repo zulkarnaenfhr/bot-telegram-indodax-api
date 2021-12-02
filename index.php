@@ -177,7 +177,6 @@
         $coinLowPrice = array();
         $nomor = 0;
         for ($i=0; $i < $panjangData; $i++) { 
-            $nomor = $i+1;
             $asset = array_keys($data)[$i];
             $low = $data[$asset]['low'];
             $last = $data[$asset]['last'];
