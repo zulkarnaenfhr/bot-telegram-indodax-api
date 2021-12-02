@@ -183,7 +183,7 @@
             $last = $data[$asset]['last'];
             if ($last == $low) {
                 // $coinLowPrice = array_push($coinLowPrice,$asset);
-                $nomor +=1;
+                $nomor = $nomor+1;
                 $msgLow .= $nomor.".".$asset."%0a";
             }
         }
