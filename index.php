@@ -175,6 +175,7 @@
     if ($text=="/low") {
         $msgStatusCoinLow = "Coin yang mengalami harga terendah : %0a";
         $coinLowPrice = array();
+        $nomor = 0;
         for ($i=0; $i < $panjangData; $i++) { 
             $nomor = $i+1;
             $asset = array_keys($data)[$i];
@@ -182,6 +183,7 @@
             $last = $data[$asset]['last'];
             if ($last == $low) {
                 // $coinLowPrice = array_push($coinLowPrice,$asset);
+                $nomor +=1;
                 $msgLow .= $nomor.".".$asset."%0a";
             }
         }
