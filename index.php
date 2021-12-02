@@ -25,7 +25,7 @@
     $a = 1;
     $panjangData = count($data);
 
-    if ($text=="/view") {
+    if ($text=="/view_indodax") {
         $msg .= "Bot Developed by Kelompok API 7!%0a%0a%0a";
         for ($i=0; $i < ($panjangData*1/8); $i++) { 
             $nomor = $i+1;
@@ -172,7 +172,7 @@
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg7."...");
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msg.$msg8."...");
     }
-    if ($text=="/low") {
+    if ($text=="/low_indodax") {
         $msgStatusCoinLow = "Coin yang mengalami harga terendah : %0a";
         $coinLowPrice = array();
         $nomor = 0;
@@ -188,7 +188,7 @@
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgLow."...");
     }
-    if ($text=="/high") {
+    if ($text=="/high_indodax") {
         $msgStatusCoinLow = "Coin yang mengalami harga tertinggi : %0a";
         $coinLowPrice = array();
         $nomor = 0;
