@@ -178,7 +178,7 @@
             $asset = array_keys($data)[$i];
             $low = $data[$asset]['low'];
             $last = $data[$asset]['last'];
-            if ($last = $low) {
+            if ($last == $low) {
                 // $coinLowPrice = array_push($coinLowPrice,$asset);
                 $msgLow .= "%0a".$asset."%0a";
             }
