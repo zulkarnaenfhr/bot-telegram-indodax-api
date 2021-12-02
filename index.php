@@ -180,9 +180,10 @@
             $asset = array_keys($data)[$i];
             $low = $data[$asset]['low'];
             $last = $data[$asset]['last'];
+            $buy = $data[$asset]['buy'];
             if ($last == $low) {
                 $nomor = $nomor+1;
-                $msgLow .= $nomor.".".$asset."%0a";
+                $msgLow .= $nomor.".".$asset."%0a"."Harga Beli : ".$low."%0a";
             }
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgLow."...");
@@ -195,9 +196,10 @@
             $asset = array_keys($data)[$i];
             $high = $data[$asset]['high'];
             $last = $data[$asset]['last'];
+            $sell = $data[$asset]['sell'];
             if ($last == $high) {  
                 $nomor = $nomor+1;
-                $msgHigh .= $nomor.".".$asset."%0a";
+                $msgHigh .= $nomor.".".$asset."%0a"."Harga Jual : ".$sell."%0a";
             }
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgHigh."...");
