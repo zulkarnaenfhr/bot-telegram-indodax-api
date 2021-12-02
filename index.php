@@ -181,12 +181,26 @@
             $low = $data[$asset]['low'];
             $last = $data[$asset]['last'];
             if ($last == $low) {
-                // $coinLowPrice = array_push($coinLowPrice,$asset);
                 $nomor = $nomor+1;
                 $msgLow .= $nomor.".".$asset."%0a";
             }
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgLow."...");
+    }
+    if ($text=="/high") {
+        $msgStatusCoinLow = "Coin yang mengalami harga tertinggi : %0a";
+        $coinLowPrice = array();
+        $nomor = 0;
+        for ($i=0; $i < $panjangData; $i++) { 
+            $asset = array_keys($data)[$i];
+            $high = $data[$asset]['high'];
+            $last = $data[$asset]['last'];
+            if ($last == $high) {  
+                $nomor = $nomor+1;
+                $msgHigh .= $nomor.".".$asset."%0a";
+            }
+        }
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgHigh."...");
     }
     else echo 'Only telegram can access this url.';
 ?>
