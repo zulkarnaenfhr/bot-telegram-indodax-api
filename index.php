@@ -31,7 +31,7 @@
 ?>
 
 <?php 
-    header( "refresh:30" );
+    header( "refresh:10" );
 ?>
 
 <?php 
