@@ -1,7 +1,7 @@
 <?php 
     $content = file_get_contents("php://input");
     if ($content) {
-        $token = '2140611723:AAHuWxwVQ9FrT5KDWQJdV2bjzUqV9dky7iI';
+        $token = '5073614406:AAEf7-M6-82p0WgCvS6RgzdMwiuorzMZnDo';
         
         $apiLink = "https://api.telegram.org/bot$token/";  
 
@@ -187,6 +187,11 @@
             }
         }
         file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgStatusCoinLow.$msgLow."...");
+    }
+    if ($text=="/start") {
+        $msgWelcome = "Selamat datang di bot Monitoring Harga Cryptocurrency, kamu dapat menyesuaikan command yang tersedia sesuai dengan kebutuhan kamu :)";
+
+        file_get_contents($apiLink . "sendmessage?chat_id=$chat_id&text=".$msgWelcome."...");
     }
     if ($text=="/high_indodax") {
         $msgStatusCoinLow = "Coin yang mengalami harga tertinggi : %0a";
