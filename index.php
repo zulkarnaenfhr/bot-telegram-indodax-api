@@ -47,7 +47,7 @@
 
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -57,10 +57,9 @@
     </head>
     <body>
         <div id="Timer"></div>
-        <!-- coba lihat -->
 
         <script>
-            var timeLeft = 10;
+            var timeLeft = 30;
             var elem = document.getElementById("Timer");
 
             var timerId = setInterval(countdown, 1000);
@@ -75,4 +74,4 @@
             }
         </script>
     </body>
-</html>
+</html> -->
