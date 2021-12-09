@@ -33,7 +33,7 @@
 <?php 
     foreach ($data as $row => $value) {
         $stringKosong = "";
-        $batasAmanSell = $value['high'] * 1/100;
+        $batasAmanSell = $value['high'] * 0.5/100;
         $batasAmanSell = $batasAmanSell;
         if ($value['last'] != 0 && ($value['high'] - $value['last']) < $batasAmanSell) {
             sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
@@ -44,15 +44,15 @@
         // }
         
     }
-    // foreach ($data as $row => $value) {
-    //     $stringKosong = "";
-    //     $batasAmanBuy = $value['low'] * 1/100;
-    //     $batasAmanBuy = $batasAmanBuy;
-    //     if ($value['last'] != 0 && ($value['last'] - $value['low']) < $batasAmanBuy) {
-    //         SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
-    //     }
-    //     // else if ($value['last'] - $value['low'] == 0) {
-    //     //     SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
-    //     // }
-    // }
+    foreach ($data as $row => $value) {
+        $stringKosong = "";
+        $batasAmanBuy = $value['low'] * 0.5/100;
+        $batasAmanBuy = $batasAmanBuy;
+        if ($value['last'] != 0 && ($value['last'] - $value['low']) < $batasAmanBuy) {
+            SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
+        }
+        // if ($value['last'] - $value['low'] == 0) {
+        //     SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
+        // }
+    }
 ?>
