@@ -31,10 +31,6 @@
 ?>
 
 <?php 
-    header( "refresh:180" );
-?>
-
-<?php 
     foreach ($data as $row => $value) {
         $stringKosong = "";
         $batasAmanBuy = $value['low'] * 1/100;
