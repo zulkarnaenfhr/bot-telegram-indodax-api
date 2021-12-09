@@ -8,21 +8,21 @@
 <?php 
     $arrayChatId = ['1062055729','1536466209','1087365447'];
 
-    function sendRecomendtoBuy($msgRecomendtoBuy,$namaCoin,$low24H,$buyPrice){
+    function sendRecomendtoBuy($msgRecomendtoBuy,$namaCoin,$lastPrice,$low24H,$buyPrice){
         // tinggal tambahin for
         global $arrayChatId;
         for ($i=0; $i < count($arrayChatId); $i++) { 
-            $msgRecomendtoBuy = "Recomend to Buy :%0a".$namaCoin."%0aLow 24H : ".$low24H."%0aBuy Price : ".$buyPrice;
+            $msgRecomendtoBuy = "Recomend to Buy :%0a".$namaCoin."%0aLast Price : Rp ".number_format($lastPrice)."%0aLow 24H : Rp ".number_format($low24H)."%0aBuy Price : Rp ".number_format($buyPrice);
             $api = "https://api.telegram.org/bot5073614406:AAEf7-M6-82p0WgCvS6RgzdMwiuorzMZnDo/sendmessage?chat_id=$arrayChatId[$i]&text=$msgRecomendtoBuy";
             $konten = file_get_contents($api);
             $data = json_decode($konten, true);
         }
     }
 
-    function sendRecomendtoSell($msgRecomendtoSell,$namaCoin,$high24H,$sellPrice){
+    function sendRecomendtoSell($msgRecomendtoSell,$namaCoin,$lastPrice,$high24H,$sellPrice){
         global $arrayChatId;
         for ($i=0; $i < count($arrayChatId) ; $i++) { 
-            $msgRecomendtoSell = "Recomend to Sell :%0a".$namaCoin."%0aHigh 24H : ".$high24H."%0aSell Price : ".$sellPrice;
+            $msgRecomendtoSell = "Recomend to Sell :%0a".$namaCoin."%0aLast Price : Rp ".number_format($lastPrice)."%0aHigh 24H : Rp ".number_format($high24H)."%0aSell Price : Rp ". number_format($sellPrice);
             $api = "https://api.telegram.org/bot5073614406:AAEf7-M6-82p0WgCvS6RgzdMwiuorzMZnDo/sendmessage?chat_id=$arrayChatId[$i]&text=$msgRecomendtoSell";
             $konten = file_get_contents($api);
             $data = json_decode($konten, true);
@@ -31,47 +31,22 @@
 ?>
 
 <?php 
-    header( "refresh:10" );
+    header( "refresh:30" );
 ?>
 
 <?php 
     foreach ($data as $row => $value) {
-        $msgRecomendtoSell = "";
-        if ($value['high'] - $value['last'] == 0) {
-            sendRecomendtoSell($msgRecomendtoSell,$row,$value['high'],$value['sell']);
+        $stringKosong = "";
+        $batasAmanBuy = $value['low'] * 2/100;
+        $batasAmanBuy = ceil($batasAmanBuy);
+        $batasAmanSell = $value['high'] * 2/100;
+        $batasAmanSell = ceil($batasAmanSell);
+        if ($value['high'] - $value['last'] < $batasAmanSell) {
+            sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
         }
-        if ($value['last'] - $value['low'] == 0) {
-            SendRecomendtoBuy($msgRecomendtoSell,$row,$value['high'],$value['sell']);
+        if ($value['last'] - $value['low'] < $batasAmanBuy) {
+            SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
         }
     }
 
 ?>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="Timer"></div>
-
-        <script>
-            var timeLeft = 30;
-            var elem = document.getElementById("Timer");
-
-            var timerId = setInterval(countdown, 1000);
-
-            function countdown() {
-                if (timeLeft == 0) {
-                    clearTimeout(timerId);
-                } else {
-                    elem.innerHTML = timeLeft + " seconds remaining";
-                    timeLeft--;
-                }
-            }
-        </script>
-    </body>
-</html> -->
