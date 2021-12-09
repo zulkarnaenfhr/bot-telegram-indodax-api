@@ -40,7 +40,7 @@
         if ($value['last'] != 0 && $value['high'] - $value['last'] < $batasAmanSell) {
             sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
         }
-        if ($value['last'] != 0 && $value['last'] - $value['low'] < $batasAmanBuy) {
+        else if ($value['last'] != 0 && $value['last'] - $value['low'] < $batasAmanBuy) {
             SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
         }
     }
