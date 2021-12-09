@@ -37,18 +37,18 @@
         $batasAmanBuy = $batasAmanBuy;
         $batasAmanSell = $value['high'] * 1/100;
         $batasAmanSell = $batasAmanSell;
-        // if ($value['last'] != 0 && $value['high'] - $value['last'] < $batasAmanSell) {
-        //     sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
-        // }
-        // else if ($value['last'] != 0 && $value['last'] - $value['low'] < $batasAmanBuy) {
-        //     SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
-        // }
-        if ($value['high'] - $value['last'] == 0) {
+        if ($value['last'] != 0 && $value['high'] - $value['last'] < $batasAmanSell) {
             sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
         }
-        else if ($value['last'] - $value['low'] == 0) {
+        else if ($value['last'] != 0 && $value['last'] - $value['low'] < $batasAmanBuy) {
             SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
         }
+        // if ($value['high'] - $value['last'] == 0) {
+        //     sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
+        // }
+        // else if ($value['last'] - $value['low'] == 0) {
+        //     SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
+        // }
     }
 
 ?>
