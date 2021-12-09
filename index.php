@@ -31,20 +31,20 @@
 ?>
 
 <?php 
-    header( "refresh:30" );
+    header( "refresh:180" );
 ?>
 
 <?php 
     foreach ($data as $row => $value) {
         $stringKosong = "";
-        $batasAmanBuy = $value['low'] * 2/100;
-        $batasAmanBuy = ceil($batasAmanBuy);
-        $batasAmanSell = $value['high'] * 2/100;
-        $batasAmanSell = ceil($batasAmanSell);
-        if ($value['high'] - $value['last'] < $batasAmanSell) {
+        $batasAmanBuy = $value['low'] * 1/100;
+        $batasAmanBuy = $batasAmanBuy;
+        $batasAmanSell = $value['high'] * 1/100;
+        $batasAmanSell = $batasAmanSell;
+        if ($value['last'] != 0 && $value['high'] - $value['last'] < $batasAmanSell) {
             sendRecomendtoSell($stringKosong,$row,$value['last'],$value['high'],$value['sell']);
         }
-        if ($value['last'] - $value['low'] < $batasAmanBuy) {
+        if ($value['last'] != 0 && $value['last'] - $value['low'] < $batasAmanBuy) {
             SendRecomendtoBuy($stringKosong,$row,$value['last'],$value['low'],$value['buy']);
         }
     }
