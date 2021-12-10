@@ -144,7 +144,7 @@
         $msgRecomendtoSell = "";
         $batasAmanSell = $value['high'] * 1/100;
         $batasAmanSell = $batasAmanSell;
-        if (($value['high'] - $value['last']) == 0 ) {
+        if ($value['last'] > 1 && ($value['high'] - $value['last']) < $batasAmanSell) {
             $msgRecomendtoSell = "Recomend to Sell :%0a".$row."%0aLast Price : Rp ".number_format($value['last'])."%0aHigh 24H : Rp ".number_format($value['high'])."%0aSell Price : Rp ". number_format($value['sell'])."%0a%0a";
             array_push($arrayDataSell,$msgRecomendtoSell);
         }
@@ -159,7 +159,7 @@
         $batasAmanBuy = $value['low'] * 1/100;
         $batasAmanBuy = $batasAmanBuy;
 
-        if (($value['last'] - $value['low']) == 0) {
+        if ($value['last'] > 1 && ($value['last'] - $value['low']) < $batasAmanBuy) {
             $msgRecomendtoBuy = "Recomend to Buy :%0a".$row."%0aLast Price : Rp ".number_format($value['last'])."%0aLow 24H : Rp ".number_format($value['low'])."%0aBuy Price : Rp ".number_format($value['buy'])."%0a%0a";
             array_push($arrayDataBuy,$msgRecomendtoBuy);
         }
