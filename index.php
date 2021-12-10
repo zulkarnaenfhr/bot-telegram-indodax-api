@@ -30,25 +30,25 @@
         for ($i=0; $i < count($arrayDataBuy)/8; $i++) { 
             $msg1 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)/8; $i < count($arrayDataBuy)*2/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)/8); $i < count($arrayDataBuy)*2/8; $i++) { 
             $msg2 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*2/8; $i < count($arrayDataBuy)*3/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*2/8); $i < count($arrayDataBuy)*3/8; $i++) { 
             $msg3 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*3/8; $i < count($arrayDataBuy)*4/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*3/8); $i < count($arrayDataBuy)*4/8; $i++) { 
             $msg4 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*4/8; $i < count($arrayDataBuy)*5/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*4/8); $i < count($arrayDataBuy)*5/8; $i++) { 
             $msg5 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*5/8; $i < count($arrayDataBuy)*6/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*5/8); $i < count($arrayDataBuy)*6/8; $i++) { 
             $msg6 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*6/8; $i < count($arrayDataBuy)*7/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*6/8); $i < count($arrayDataBuy)*7/8; $i++) { 
             $msg7 .= $arrayDataBuy[$i];
         }
-        for ($i=count($arrayDataBuy)*7/8; $i < count($arrayDataBuy)*8/8; $i++) { 
+        for ($i=ceil(count($arrayDataBuy)*7/8); $i < count($arrayDataBuy)*8/8; $i++) { 
             $msg8 .= $arrayDataBuy[$i];
         }
         sendRecomendtoBuy($msg1);
@@ -84,25 +84,25 @@
         for ($i=0; $i < count($arrayDataSell)/8; $i++) { 
             $msg1 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)/8; $i < count($arrayDataSell)*2/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)/8); $i < count($arrayDataSell)*2/8; $i++) { 
             $msg2 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*2/8; $i < count($arrayDataSell)*3/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*2/8); $i < count($arrayDataSell)*3/8; $i++) { 
             $msg3 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*3/8; $i < count($arrayDataSell)*4/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*3/8); $i < count($arrayDataSell)*4/8; $i++) { 
             $msg4 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*4/8; $i < count($arrayDataSell)*5/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*4/8); $i < count($arrayDataSell)*5/8; $i++) { 
             $msg5 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*5/8; $i < count($arrayDataSell)*6/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*5/8); $i < count($arrayDataSell)*6/8; $i++) { 
             $msg6 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*6/8; $i < count($arrayDataSell)*7/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*6/8); $i < count($arrayDataSell)*7/8; $i++) { 
             $msg7 .= $arrayDataSell[$i];
         }
-        for ($i=count($arrayDataSell)*7/8; $i < count($arrayDataSell)*8/8; $i++) { 
+        for ($i=ceil(count($arrayDataSell)*7/8); $i < count($arrayDataSell)*8/8; $i++) { 
             $msg8 .= $arrayDataSell[$i];
         }
         sendRecomendtoSell($msg1);
