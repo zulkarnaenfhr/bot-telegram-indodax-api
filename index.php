@@ -128,7 +128,6 @@
         }
     }
     splitRecomendtoSell();
-    // echo count($arrayDataSell)." ";
 
     $arrayDataBuy = array();
     foreach ($data as $row => $value) {
@@ -141,7 +140,6 @@
         }
     }
     splitRecomendtoBuy();
-    // echo count($arrayDataBuy)."%0a";
 
     echo 'only telegram bot can access this, visit <a href="http://t.me/Monitoring_Cryptocurrency_bot">t.me/Monitoring_Cryptocurrency_bot</a>';
 ?>
