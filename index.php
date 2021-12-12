@@ -121,9 +121,26 @@
     foreach ($data as $row => $value) {
         $msgRecomendtoSell = "";
         $batasAmanSell = $value['high'] * 1/100;
+        if ($value['last'] < 2) {
+            $valueLast = number_format($value['last'],7,",",".");
+        }else {
+            $valueLast = number_format($value['last']);
+        }
 
-        if ($value['last'] > 1 && ($value['high'] - $value['last']) < $batasAmanSell) {
-            $msgRecomendtoSell = "Recomend to Sell :%0a".$row."%0aLast Price : ".number_format($value['last'])."%0aHigh 24H : ".number_format($value['high'])."%0aSell Price : ". number_format($value['sell'])."%0a%0a";
+        if ($value['high'] < 2) {
+            $valueHigh = number_format($value['high'],7,",",".");
+        }else {
+            $valueHigh = number_format($value['high']);
+        }
+
+        if ($value['sell'] < 2) {
+            $valueSell = number_format($value['sell'],7,",",".");
+        }else {
+            $valueSell = number_format($value['sell']);
+        }
+
+        if (($value['high'] - $value['last']) < $batasAmanSell) {
+            $msgRecomendtoSell = "Recomend to Sell :%0a".$row."%0aLast Price : ".$valueLast."%0aHigh 24H : ".$valueHigh."%0aSell Price : ". $valueSell."%0a%0a";
             array_push($arrayDataSell,$msgRecomendtoSell);
         }
     }
@@ -134,8 +151,26 @@
         $msgRecomendtoBuy = "";
         $batasAmanBuy = $value['low'] * 1/100;
 
-        if ($value['last'] > 1 && ($value['last'] - $value['low']) < $batasAmanBuy) {
-            $msgRecomendtoBuy = "Recomend to Buy :%0a".$row."%0aLast Price : ".number_format($value['last'])."%0aLow 24H : ".number_format($value['low'])."%0aBuy Price : ".number_format($value['buy'])."%0a%0a";
+        if ($value['last'] < 2) {
+            $valueLast = number_format($value['last'],7,",",".");
+        }else {
+            $valueLast = number_format($value['last']);
+        }
+
+        if ($value['low'] < 2) {
+            $valueLow = number_format($value['low'],7,",",".");
+        }else {
+            $valueLow = number_format($value['low']);
+        }
+
+        if ($value['buy'] < 2) {
+            $valueBuy = number_format($value['buy'],7,",",".");
+        }else {
+            $valueBuy = number_format($value['buy']);
+        }
+
+        if (($value['last'] - $value['low']) < $batasAmanBuy) {
+            $msgRecomendtoBuy = "Recomend to Buy :%0a".$row."%0aLast Price : ".$valueLast."%0aLow 24H : ".$valueLow."%0aBuy Price : ".$valueBuy."%0a%0a";
             array_push($arrayDataBuy,$msgRecomendtoBuy);
         }
     }
