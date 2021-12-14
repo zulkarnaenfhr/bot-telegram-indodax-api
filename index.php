@@ -117,10 +117,19 @@
 ?>
 
 <?php 
+    $arrayDataBuy = array();
     $arrayDataSell = array();
     foreach ($data as $row => $value) {
         $msgRecomendtoSell = "";
         $batasAmanSell = $value['high'] * 1/100;
+        $isHigh = ($value['high'] - $value['last']);
+
+
+        $msgRecomendtoBuy = "";
+        $batasAmanBuy = $value['low'] * 1/100;
+        $isLow = ($value['last'] - $value['low']);
+
+
         if ($value['last'] < 2) {
             $valueLast = number_format($value['last'],7,",",".");
         }else {
@@ -139,23 +148,7 @@
             $valueSell = number_format($value['sell']);
         }
 
-        if (($value['high'] - $value['last']) < $batasAmanSell) {
-            $msgRecomendtoSell = "Recommend  to Sell :%0a".$row."%0aLast Price : ".$valueLast."%0aHigh 24H : ".$valueHigh."%0aSell Price : ". $valueSell."%0a%0a";
-            array_push($arrayDataSell,$msgRecomendtoSell);
-        }
-    }
-    splitRecomendtoSell();
-
-    $arrayDataBuy = array();
-    foreach ($data as $row => $value) {
-        $msgRecomendtoBuy = "";
-        $batasAmanBuy = $value['low'] * 1/100;
-
-        if ($value['last'] < 2) {
-            $valueLast = number_format($value['last'],7,",",".");
-        }else {
-            $valueLast = number_format($value['last']);
-        }
+        // batas msg rekomen buy
 
         if ($value['low'] < 2) {
             $valueLow = number_format($value['low'],7,",",".");
@@ -169,11 +162,17 @@
             $valueBuy = number_format($value['buy']);
         }
 
-        if (($value['last'] - $value['low']) < $batasAmanBuy) {
+        if ($isHigh<$isLow && ($value['high'] - $value['last']) < $batasAmanSell) {
+            $msgRecomendtoSell = "Recommend  to Sell :%0a".$row."%0aLast Price : ".$valueLast."%0aHigh 24H : ".$valueHigh."%0aSell Price : ". $valueSell."%0a%0a";
+            array_push($arrayDataSell,$msgRecomendtoSell);
+        }
+
+        if ($isLow<$isHigh && ($value['last'] - $value['low']) < $batasAmanBuy) {
             $msgRecomendtoBuy = "Recommend  to Buy :%0a".$row."%0aLast Price : ".$valueLast."%0aLow 24H : ".$valueLow."%0aBuy Price : ".$valueBuy."%0a%0a";
             array_push($arrayDataBuy,$msgRecomendtoBuy);
         }
     }
+    splitRecomendtoSell();
     splitRecomendtoBuy();
 
     echo 'only telegram bot can access this, visit <a href="http://t.me/Monitoring_Cryptocurrency_bot">t.me/Monitoring_Cryptocurrency_bot</a>';
