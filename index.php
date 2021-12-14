@@ -140,7 +140,7 @@
         }
 
         if (($value['high'] - $value['last']) < $batasAmanSell) {
-            $msgRecomendtoSell = "Recomend to Sell :%0a".$row."%0aLast Price : ".$valueLast."%0aHigh 24H : ".$valueHigh."%0aSell Price : ". $valueSell."%0a%0a";
+            $msgRecomendtoSell = "Recommend  to Sell :%0a".$row."%0aLast Price : ".$valueLast."%0aHigh 24H : ".$valueHigh."%0aSell Price : ". $valueSell."%0a%0a";
             array_push($arrayDataSell,$msgRecomendtoSell);
         }
     }
@@ -170,7 +170,7 @@
         }
 
         if (($value['last'] - $value['low']) < $batasAmanBuy) {
-            $msgRecomendtoBuy = "Recomend to Buy :%0a".$row."%0aLast Price : ".$valueLast."%0aLow 24H : ".$valueLow."%0aBuy Price : ".$valueBuy."%0a%0a";
+            $msgRecomendtoBuy = "Recommend  to Buy :%0a".$row."%0aLast Price : ".$valueLast."%0aLow 24H : ".$valueLow."%0aBuy Price : ".$valueBuy."%0a%0a";
             array_push($arrayDataBuy,$msgRecomendtoBuy);
         }
     }
