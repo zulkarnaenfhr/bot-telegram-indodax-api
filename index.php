@@ -124,7 +124,6 @@
         $batasAmanSell = $value['high'] * 1/100;
         $isHigh = ($value['high'] - $value['last']);
 
-
         $msgRecomendtoBuy = "";
         $batasAmanBuy = $value['low'] * 1/100;
         $isLow = ($value['last'] - $value['low']);
@@ -149,7 +148,6 @@
         }
 
         // batas msg rekomen buy
-
         if ($value['low'] < 2) {
             $valueLow = number_format($value['low'],7,",",".");
         }else {
