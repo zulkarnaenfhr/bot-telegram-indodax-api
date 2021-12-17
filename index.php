@@ -6,7 +6,7 @@
 ?>
 
 <?php 
-    $arrayChatId = ['1062055729','1536466209','1087365447'];
+    $arrayChatId = ['1062055729','1536466209','1087365447','1185684571'];
 
     function sendRecomendtoBuy($msgSendtoBuy){
         global $arrayChatId;
